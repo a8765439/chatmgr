@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Database dump</h1>
+<div class="inbox">
+    <a href="{% url "db_dump_file" %}">
+        <button type="submit" class="btn btn-info">Click here to download a whole database from the server</button>
+    </a>
+    <h1> </h1>
+    <h3> <b>Profiles </b> </h3>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">ID</th>
+                <th scope="col">First_name</th>
+                <th scope="col">Last_name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Date_of_birth</th>
+                <th scope="col">Photo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for profile in profile_list %}
+            <tr>
+                <td>{{ profile.user.username }}</td>
+                <td>{{ profile.user.id }}</td>
+                <td>{{ profile.user.first_name }}</td>
+                <td>{{ profile.user.last_name }}</td>
+                <td>{{ profile.user.email }}</td>
+                <td>{{ profile.user.password }}</td>
+                <td>{{ profile.date_of_birth }}</td>
+                <td>{{ profile.photo }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3> <b>Messages </b> </h3>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Sender</th>
+                <th scope="col">Receiver</th>
+                <th scope="col">Date</th>
+                <th scope="col">Message content</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for msg in msg_list %}
+            <tr>
+                <td>{{ msg.sender }}</td>
+                <td>{{ msg.receiver }}</td>
+                <td>{{ msg.created_at }}</td>
+                <td>{{ msg.message }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}

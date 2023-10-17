@@ -1,0 +1,9 @@
+Django
+gunicorn
+dj-database-url
+django-crispy-forms
+crispy-bootstrap5
+whitenoise
+pytz
+Pillow
+django-fernet-fields-v2

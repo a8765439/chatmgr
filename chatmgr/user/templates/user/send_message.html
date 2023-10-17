@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Send Message</h1>
+<div class="sendmsg">
+    <form  method="POST">
+        {% csrf_token %}
+        {% load crispy_forms_tags %}
+        {{ msg_form|crispy }}
+        <!-- {{ msg_form.as_p }} -->
+        <button type="submit" class="btn btn-success">Send message</button>
+
+        {% if confirm %}
+
+        <div class="alert alert-success" id="success-alert">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            <strong>Success!</strong> {{ confirm }}.
+        </div>
+        {% endif %}
+    </form>
+</div>
+
+{% endblock content %}
