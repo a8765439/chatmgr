@@ -44,7 +44,7 @@ python manage.py makemigrations && python manage.py migrate
 
 #### Create an admin user (only if needed)
 ```
-python manage.py createsuperuser --username=luk6xff --email=luk6xff@example.com
+python manage.py createsuperuser --username=testadmin --email=testadmin@testadmin.com
 $ password: ...
 ```
 
@@ -114,6 +114,3 @@ systemctl restart nginx
 ```
 
 Go to: `http://<your_server_ip>:80/`
-# chatmgr
-# chatmgr
-# chatmgr
